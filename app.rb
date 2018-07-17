@@ -60,8 +60,8 @@ class App < Sinatra::Base
   end
 
   get '/set' do
-    @session = session
-    binding.pru
+  #  @session = session
+    
     session[:foo] = 'hello'
 end
 end
