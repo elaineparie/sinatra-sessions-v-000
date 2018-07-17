@@ -60,6 +60,7 @@ class App < Sinatra::Base
   end
 
   get '/set' do
-    @session[:foo] = "hello"
+    @session = session
+    session[:foo] = "hello"
 end
 end
