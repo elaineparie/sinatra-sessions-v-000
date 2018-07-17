@@ -19,6 +19,8 @@ class App < Sinatra::Base
   end
 
   get '/set' do
+    @session = session
+    session[:foo] = "hello"
     # set the :foo key of the session hash equal to 'hello' here!
     if session[:foo] == 'hello'
       redirect '/fetch'
@@ -36,8 +38,7 @@ class App < Sinatra::Base
   end
 
   get '/set_session' do
-    @session = session
-     session[:foo] = 'hello'
+    #set session id here
 
     if session[:id] == 1
       # "Session ID set. It's currently set to #{session[:id]}."
@@ -59,5 +60,6 @@ class App < Sinatra::Base
   get '/finish' do
     "Hopefully that explains a little more about the concept of sessions.\nThe session is simply a way to store user data on a temporary basis.\nIn any web application, a user ID is typically used as a session ID.\nThis is because an ID attribute of a user is a unique identifier\nthat will always be distinguishable from other user ID attributes."
   end
+
 
 end
