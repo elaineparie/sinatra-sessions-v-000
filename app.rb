@@ -61,6 +61,6 @@ class App < Sinatra::Base
 
   get '/set' do
     @session = session
-    session[:foo] = hello
+    session[:foo] == "hello"
 end
 end
