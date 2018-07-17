@@ -36,7 +36,8 @@ class App < Sinatra::Base
   end
 
   get '/set_session' do
-    #set session id here
+    @session = session
+     session[:foo] = 'hello'
 
     if session[:id] == 1
       # "Session ID set. It's currently set to #{session[:id]}."
@@ -59,10 +60,4 @@ class App < Sinatra::Base
     "Hopefully that explains a little more about the concept of sessions.\nThe session is simply a way to store user data on a temporary basis.\nIn any web application, a user ID is typically used as a session ID.\nThis is because an ID attribute of a user is a unique identifier\nthat will always be distinguishable from other user ID attributes."
   end
 
-  get '/set' do
-   @session = session
-   binding.pry
-
-    session[:foo] = 'hello'
-end
 end
